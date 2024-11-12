@@ -1,0 +1,98 @@
+.footer {
+  background-color: #333;
+  color: #f0f0f0;
+  padding: 40px 40px;
+  font-family: Arial, sans-serif;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.branding {
+  max-width: 300px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f47f25;
+}
+
+.linksSection {
+  display: flex;
+  justify-content: center;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.linksList li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.linksList li a:hover {
+  color: #f47f25;
+}
+
+.socialMedia {
+  text-align: center;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+.socialIcons img {
+  height: 30px;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  text-decoration: none;
+  border: 1px solid #f0f0f0;
+  padding: 6px 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.socialIcons a:hover {
+  background-color: #f47f25;
+  color: #333;
+  border-color: #f47f25;
+}
+
+.footerBottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.footerBottom a {
+  text-decoration: none;
+  color: inherit;
+}
