@@ -8,14 +8,21 @@
 
 .categories li {
   border: 1px solid gray;
-  padding: 20px 40px;
+  padding: 15px 35px;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.categories li:hover {
+  background-color: var(--orange);
+  border: 1px solid var(--orange);
 }
 
 /* media queries */
 @media (max-width: 768px) {
   .categories li {
-    padding: 15px 25px;
+    padding: 10px 20px;
   }
 }
 
