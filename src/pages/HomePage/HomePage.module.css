@@ -1,0 +1,7 @@
+.suggestedRecipes{
+    padding: var(--section-padding);
+}
+
+.foodCard{
+    display: flex;
+}
