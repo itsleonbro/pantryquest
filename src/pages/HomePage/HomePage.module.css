@@ -1,7 +1,26 @@
-.suggestedRecipes{
-    padding: var(--section-padding);
+.categories {
+  padding: var(--section-padding);
 }
 
-.foodCard{
-    display: flex;
+.suggestedRecipes {
+  padding: var(--section-padding);
+}
+
+.foodCard {
+  display: flex;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .suggestedRecipes,
+  .categories {
+    padding: 20px 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .suggestedRecipes,
+  .categories {
+    padding: 20px 20px;
+  }
 }

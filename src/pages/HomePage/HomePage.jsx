@@ -16,7 +16,7 @@ const HomePage = ({ingredients, setIngredients, recipeData, handleSearch}) => {
           handleSearch={handleSearch}
         />
 
-        <div>
+        <div className={styles.categories}>
           <Categories />
         </div>
 

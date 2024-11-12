@@ -13,13 +13,6 @@
   align-items: center;
 }
 
-@media (min-width: 768px) {
-  .footerContainer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
 .branding {
   max-width: 300px;
 }
@@ -95,4 +88,12 @@
 .footerBottom a {
   text-decoration: none;
   color: inherit;
+}
+
+/* media queries */
+@media (min-width: 768px) {
+  .footerContainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

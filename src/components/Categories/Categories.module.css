@@ -1,5 +1,6 @@
 .categories {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   list-style: none;
@@ -9,4 +10,17 @@
   border: 1px solid gray;
   padding: 20px 40px;
   border-radius: 10px;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .categories li {
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories li {
+    padding: 10px 20px;
+  }
 }

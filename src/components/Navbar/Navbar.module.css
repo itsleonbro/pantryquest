@@ -1,8 +1,16 @@
+.nav {
+  padding: 20px 50px;
+}
+
 .navContainer {
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 20px 50px;
+}
+
+.logo h1{
+  font-size: 1.5rem;
 }
 
 .rightMenu {
@@ -18,4 +26,21 @@
   display: inline-block;
   width: 40px;
   height: 40px;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .nav {
+    padding: 20px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 20px 20px;
+  }
+
+  .logo h1{
+    font-size: 1rem;
+  }
 }
