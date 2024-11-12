@@ -36,7 +36,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="./src/assets/social-icons/facebook_icon.svg" alt="" />
+              <img src="./assets/social-icons/facebook_icon.svg" alt="" />
             </a>
             <a
               href="https://twitter.com/leonhlabathi"
@@ -44,7 +44,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <img
-                src="./src/assets/social-icons/x_logo_twitter_new_brand_icon.svg"
+                src="./assets/social-icons/x_logo_twitter_new_brand_icon.svg"
                 alt=""
               />
             </a>
@@ -53,7 +53,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="./src/assets/social-icons/instagram_icon.svg" alt="" />
+              <img src="./assets/social-icons/instagram_icon.svg" alt="" />
             </a>
           </div>
         </div>
