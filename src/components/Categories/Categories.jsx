@@ -8,6 +8,10 @@ const Categories = () => {
         <ul className={styles.categories}>
           <li>African</li>
           <li>Italian</li>
+          <li>Vegetarian</li>
+          <li>Japanese</li>
+          <li>Dessert</li>
+          <li>Snack</li>
         </ul>
       </div>
     </div>
