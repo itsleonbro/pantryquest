@@ -11,23 +11,6 @@ const Footer = () => {
           <p>Your ultimate recipe finder and kitchen companion.</p>
         </div>
 
-        <div className={styles.linksSection}>
-          <ul className={styles.linksList}>
-            <li>
-              <a href="/about">About Us</a>
-            </li>
-            <li>
-              <a href="/recipes">Recipes</a>
-            </li>
-            <li>
-              <a href="/blog">Blog</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-
         <div className={styles.socialMedia}>
           <h3>Follow Us</h3>
           <div className={styles.socialIcons}>

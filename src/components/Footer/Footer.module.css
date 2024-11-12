@@ -1,7 +1,7 @@
 .footer {
   background-color: #333;
   color: #fff;
-  padding: 40px 40px;
+  padding: 30px 40px;
   font-family: Arial, sans-serif;
 }
 
@@ -20,28 +20,6 @@
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: var(--orange);
-}
-
-.linksSection {
-  display: flex;
-  justify-content: center;
-}
-
-.linksList {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
-
-.linksList li a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-.linksList li a:hover {
   color: var(--orange);
 }
 
@@ -93,7 +71,6 @@
 /* media queries */
 @media (min-width: 768px) {
   .footerContainer {
-    flex-direction: row;
     justify-content: space-between;
   }
 }
