@@ -1,0 +1,12 @@
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+}
+
+.categories li {
+  border: 1px solid gray;
+  padding: 20px 40px;
+  border-radius: 10px;
+}
