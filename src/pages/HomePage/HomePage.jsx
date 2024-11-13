@@ -22,6 +22,7 @@ const HomePage = ({
           ingredients={ingredients}
           setIngredients={setIngredients}
           handleSearch={handleSearch}
+          loading={loading}
         />
 
         <div className={styles.categories}>
