@@ -1,7 +1,13 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
+import RecipePage from "./pages/RecipePage/RecipePage";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -24,14 +30,14 @@ function App() {
   function fetchData() {
     setLoading(true);
     fetch(apiURL)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
         return response.json();
       })
-      .then((data) => setRecipeData(data))
-      .catch((error) => console.error("Error:", error))
+      .then(data => setRecipeData(data))
+      .catch(error => console.error("Error:", error))
       .finally(() => setLoading(false));
   }
 
@@ -43,14 +49,14 @@ function App() {
   function fetchCuisineData() {
     setLoading(true);
     fetch(cuisineApiUrl)
-      .then((response) => {
+      .then(response => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
         return response.json();
       })
-      .then((data) => setRecipeData(data))
-      .catch((error) => console.error("Error:", error))
+      .then(data => setRecipeData(data))
+      .catch(error => console.error("Error:", error))
       .finally(() => setLoading(false));
   }
 
