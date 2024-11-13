@@ -76,6 +76,7 @@ function App() {
             />
           }
         />
+        <Route path="/recipe/:id" element={<RecipePage />} />
       </Routes>
       <Footer />
     </Router>
