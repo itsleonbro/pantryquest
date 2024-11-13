@@ -30,7 +30,7 @@ const FoodCard = ({ recipeData }) => {
   return (
     <div>
       <div className={styles.recipeGrid}>
-        {recipeData.map(recipe => (
+        {recipeData.results.map(recipe => (
           <div className={styles.recipeCard} key={recipe.id}>
             <div>
               <img src={recipe.image} alt={recipe.title} />

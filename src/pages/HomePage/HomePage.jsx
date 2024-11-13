@@ -5,7 +5,15 @@ import Search from "../../components/Search/Search";
 import Categories from "../../components/Categories/Categories";
 import FoodCard from "../../components/FoodCard/FoodCard";
 
-const HomePage = ({ingredients, setIngredients, recipeData, handleSearch}) => {
+const HomePage = ({
+  ingredients,
+  setIngredients,
+  recipeData,
+  handleSearch,
+  handleCuisineSearch,
+  setCuisine,
+  loading,
+}) => {
   return (
     <>
       <div>
@@ -17,7 +25,10 @@ const HomePage = ({ingredients, setIngredients, recipeData, handleSearch}) => {
         />
 
         <div className={styles.categories}>
-          <Categories />
+          <Categories
+            setCuisine={setCuisine}
+            handleCuisineSearch={handleCuisineSearch}
+          />
         </div>
 
         <div className={styles.suggestedRecipes}>

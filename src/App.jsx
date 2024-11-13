@@ -12,6 +12,13 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const [ingredients, setIngredients] = useState("");
   const [recipeData, setRecipeData] = useState(null);
+
+  // state for cuisine search
+  const [cuisine, setCuisine] = useState("");
+
+  // loading state to prevent multiple fetches
+  const [loading, setLoading] = useState(false);
+
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const apiURL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKey}&ingredients=${ingredients}&number=18`;
@@ -20,22 +27,29 @@ function App() {
     fetchData();
   }
 
-  function fetchData() {
-    fetch(apiURL)
-      .then(response => {
+  // fetch recipe by cuisine
+  function fetchCuisineData() {
+    setLoading(true);
+    fetch(cuisineApiUrl)
+      .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
         return response.json();
       })
-      .then(data => setRecipeData(data))
-      .catch(error => console.error("Error:", error));
+      .then((data) => setRecipeData(data))
+      .catch((error) => console.error("Error:", error))
+      .finally(() => setLoading(false));
+  }
+
+  function handleCuisineSearch() {
+    if (!loading) fetchCuisineData();
   }
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />{" "}
+        <Route path="/" element={<Navigate to="/home" />} />
         <Route
           path="/home"
           element={
@@ -43,12 +57,15 @@ function App() {
               recipeData={recipeData}
               ingredients={ingredients}
               setIngredients={setIngredients}
+              setCuisine={setCuisine}
               handleSearch={handleSearch}
+              handleCuisineSearch={handleCuisineSearch}
+              loading={loading}
             />
           }
         />
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
