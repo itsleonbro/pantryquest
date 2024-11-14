@@ -1,0 +1,63 @@
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loadingContainer p {
+  color: var(--orange);
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.container img {
+  width: 400px;
+  border-radius: 20px;
+}
+
+.container a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.ingredients {
+  color: #252525;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .container img {
+    width: 340px;
+    border-radius: 20px;
+  }
+
+  .container h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .container img {
+    width: 350px;
+    border-radius: 20px;
+  }
+}

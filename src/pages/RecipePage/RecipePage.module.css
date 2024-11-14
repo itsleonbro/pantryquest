@@ -1,0 +1,15 @@
+.recipeContainer {
+  padding: var(--section-padding);
+}
+
+@media (max-width: 768px) {
+  .recipeContainer {
+    padding: 20px 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipeContainer {
+    padding: 20px 20px;
+  }
+}
