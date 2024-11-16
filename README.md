@@ -25,19 +25,18 @@ You can view the live version of PantryQuest by visiting the following link:
 
    ```bash
    git clone https://github.com/itsleonbro/pantryquest.git
+   ```
+
+2. Install dependancies
+
+   ```bash
    cd pantryquest
    npm install
    ```
 
-2. Install Material UI icons
-
-   ```bash
-   npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-   ```
-
 3. Create an .env file in the root directory
 
-   ```
+   ```bash
    VITE_API_KEY=YourApi
    ```
 
@@ -53,7 +52,7 @@ You can view the live version of PantryQuest by visiting the following link:
    npm run dev
    ```
    or if you use yarn
-   ```
+   ```bash
    yarn dev
    ```
    Your app should now be running on http://localhost:5173
