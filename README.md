@@ -5,11 +5,13 @@ PantryQuest is a React web app designed to help you discover recipes using ingre
 ## Features
 
 - **Ingredient-Based Search:** Enter multiple ingredients separated by commas (e.g., "tomato, chicken, basil") to find recipes that use those items.
-- **Quick Search by Cuisine:** Use the predefined buttons for one-click access to recipes by cuisine or category. Options include:
+- **Quick Search by Cuisine:** Use the predefined buttons for one-click access to recipes by cuisine. Options include:
 
-  - African
+  - Japanese
   - Italian
-  - Snack
+  - American
+  - Asian
+  - European
 
 - **Responsive Design:** PantryQuest is fully responsive and works on desktop, tablet, and mobile devices.
 
