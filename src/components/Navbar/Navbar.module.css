@@ -1,5 +1,7 @@
 .nav {
   padding: 20px 50px;
+  position: relative;
+  overflow: hidden;
 }
 
 .navContainer {
@@ -32,6 +34,25 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+}
+
+.accountPopUp {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  transform: translateY(0px);
+  top: 50%;
+  color: black;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.accountPopUp a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* media queries */
