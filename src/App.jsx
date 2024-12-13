@@ -9,6 +9,7 @@ import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import Footer from "./components/Footer/Footer";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 function App() {
   // state for ingredient search
@@ -83,6 +84,7 @@ function App() {
           }
         />
         <Route path="/recipe/:id" element={<RecipePage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
       <Footer />
     </Router>
