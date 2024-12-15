@@ -29,8 +29,12 @@ const Navbar = () => {
 
           {isAccountClicked && (
             <div className={styles.accountPopUp}>
-              <div><Link to={'/register'}>Sign Up</Link></div>
-              <div>Sign in</div>
+              <div>
+                <Link to={"/register"}>Sign Up</Link>
+              </div>
+              <div>
+                <Link to={"/login"}>Sign In</Link>
+              </div>
             </div>
           )}
         </div>
