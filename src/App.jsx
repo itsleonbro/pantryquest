@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import Footer from "./components/Footer/Footer";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   // state for ingredient search
@@ -85,6 +86,7 @@ function App() {
         />
         <Route path="/recipe/:id" element={<RecipePage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </Router>
