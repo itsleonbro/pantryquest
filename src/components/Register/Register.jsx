@@ -9,11 +9,13 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async e => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5001/signup", {
+      const response = await axios.post(`${API_URL}/signup`, {
         username: username,
         email: email,
         password: password,
