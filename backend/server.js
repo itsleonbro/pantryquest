@@ -7,7 +7,11 @@ const UserModel = require("./models/UserModel");
 const app = express();
 
 //middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://pantryquest.itsleon.dev",
+  })
+);
 app.use(express.json());
 
 //db connection
