@@ -6,6 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { useState } from "react";
+import { inject } from "@vercel/analytics";
 import HomePage from "./pages/HomePage/HomePage";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import Footer from "./components/Footer/Footer";
@@ -13,6 +14,9 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
+  //vercel analytics
+  inject();
+
   // state for ingredient search
   const [ingredients, setIngredients] = useState("");
   const [recipeData, setRecipeData] = useState(null);
@@ -89,6 +93,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
+      <Analytics />
     </Router>
   );
 }
