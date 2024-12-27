@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const UserModel = require("./models/UserModel");
 
@@ -30,7 +32,14 @@ app.post("/signup", async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    const newUser = new UserModel({ username, email, password });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    console.log("Hashed Password: ", hashedPassword); // This will log the hashed password
+
+    const newUser = new UserModel({
+      username,
+      email,
+      password: hashedPassword,
+    });
     await newUser.save();
 
     res.status(201).json({ message: "User created successfully" });
@@ -47,11 +56,20 @@ app.post("/login", async (req, res) => {
     const user = await UserModel.findOne({ email });
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    if (user.password !== password) {
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    res.json({ message: "Logged in successfully" });
+    // create JWT token
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+
+    res.json({ message: "Logged in successfully", token });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
