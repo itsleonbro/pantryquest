@@ -9,7 +9,7 @@ const app = express();
 //middleware
 app.use(
   cors({
-    origin: "https://pantryquest.itsleon.dev",
+    origin: "*",
   })
 );
 app.use(express.json());
