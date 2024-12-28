@@ -53,6 +53,7 @@ app.post("/signup", async (req, res) => {
 
     res.status(201).json({ token, message: "User created successfully" });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -80,6 +81,7 @@ app.post("/login", async (req, res) => {
 
     res.json({ message: "Logged in successfully", token });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 });
