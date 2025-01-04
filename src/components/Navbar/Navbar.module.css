@@ -1,6 +1,5 @@
 .nav {
   padding: 20px 50px;
-  position: relative;
   overflow: hidden;
 }
 
@@ -36,18 +35,25 @@
   cursor: pointer;
 }
 
-.accountPopUp {
+/* show the pop-up when either the icon div or the pop-up itself is hovered */
+.rightMenu div:hover + .accountPopUp,
+.accountPopUp:hover {
   display: flex;
+}
+
+.accountPopUp {
+  display: none;
+  flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   width: 150px;
-  position: absolute;
-  top: 60%;
+  position: fixed;
+  top: 8%;
   transform: translateX(-50px);
   color: black;
   background-color: #fff;
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
