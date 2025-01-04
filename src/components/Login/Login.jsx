@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState("");
+
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const navigate = useNavigate();
 
@@ -17,15 +18,17 @@ const Login = () => {
     setResponse("");
 
     try {
-      const response = await axios.post(`${API_URL}/login`, {
+      const loginResponse = await axios.post(`${API_URL}/login`, {
         email: email,
         password: password,
       });
-      if (response.data.message === "Logged in successfully") {
-        console.log("success!");
-        navigate("/home");
 
-        setResponse(response.data.message);
+      if (loginResponse.data.message === "Logged in successfully") {
+        setResponse(loginResponse.data.message);
+        localStorage.setItem("token", loginResponse.data.token);
+        navigate("/home");
+      } else {
+        setResponse(loginResponse.data.message);
       }
     } catch (error) {
       console.error(error);
@@ -37,7 +40,8 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.loginContainer}>
         <h2 className={styles.title}>Welcome, let's get you logged in</h2>
-        <form className={styles.form}>
+
+        <form className={styles.form} onSubmit={handleLogin}>
           <input
             type="email"
             placeholder="Email"
@@ -57,10 +61,11 @@ const Login = () => {
             }}
           />
 
-          <button type="submit" onClick={handleLogin} className={styles.button}>
+          <button type="submit" className={styles.button}>
             Sign In
           </button>
         </form>
+
         <h2 className={styles.loginPrompt}>
           Don't have an account? <Link to={"/register"}>Sign up</Link>
         </h2>
