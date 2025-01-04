@@ -87,6 +87,22 @@ app.post("/login", async (req, res) => {
   }
 });
 
+//route to fetch user's info
+app.get("/api/dashboard", authenticate, async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.userId, "username email");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ username: user.username, email: user.email });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 //listen
 const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
