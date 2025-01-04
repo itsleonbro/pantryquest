@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const UserModel = require("./models/UserModel");
 
+const authenticate = require("./middleware/authenticate");
+
 const app = express();
 
 //middleware
