@@ -18,8 +18,6 @@ const Navbar = () => {
     setIsLoggedIn(!!token);
   }, []);
 
-  // console.log(isLoggedIn);
-
   return (
     <nav className={styles.nav}>
       <div className={styles.navContainer}>
