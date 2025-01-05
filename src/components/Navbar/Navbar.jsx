@@ -50,7 +50,7 @@ const Navbar = () => {
               </div>
 
               <div>
-                <Link to={"/login"}>My Recipes</Link>
+                <Link to={"/account/my-recipes"}>My Recipes</Link>
               </div>
 
               <div onClick={handleLogOut}>
