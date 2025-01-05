@@ -1,0 +1,40 @@
+.profileContainer {
+  border-top: 1px solid rgb(225, 225, 225);
+  padding: var(--section-padding);
+}
+.profileHeading {
+  margin-bottom: 80px;
+}
+
+.profileContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profileContainer form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profileContainer form input {
+  border: 1px solid rgb(191, 191, 191);
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 400px;
+  height: 40px;
+}
+
+.profileContainer form input:focus {
+  outline: none;
+}
+
+.submitBtn button {
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--orange);
+}

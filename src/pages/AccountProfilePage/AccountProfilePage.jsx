@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./AccountProfilePage.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 
@@ -29,12 +30,48 @@ const AccountProfilePage = () => {
     fetchDashboard();
   }, []);
 
+  const handleSaveChanges = e => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <Navbar />
-      <div>
-        <div>username: {username}</div>
-        <div>Email: {email}</div>
+      <div className={styles.profileContainer}>
+        <h2 className={styles.profileHeading}>Profile</h2>
+
+        <form action="" onSubmit={handleSaveChanges}>
+          <div>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value={username}
+              onChange={e => {
+                setUsername(e.target.value);
+              }}
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value);
+              }}
+            />
+          </div>
+
+          <div className={styles.submitBtn}>
+            <button type="submit">Save Changes</button>
+          </div>
+        </form>
       </div>
     </div>
   );
