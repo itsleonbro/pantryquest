@@ -43,6 +43,9 @@ const Navbar = () => {
           {isLoggedIn ? (
             <div className={styles.accountPopUp}>
               <div>
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div>
                 <Link to={"/account/profile"}>Profile</Link>
               </div>
 
