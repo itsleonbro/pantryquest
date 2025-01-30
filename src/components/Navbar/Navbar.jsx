@@ -28,7 +28,9 @@ const Navbar = () => {
         </div>
 
         <div className={styles.rightMenu}>
-          <FavoriteBorderRoundedIcon />
+          <Link to={"/account/favourites"}>
+            <FavoriteBorderRoundedIcon />
+          </Link>
 
           <div
             onClick={() => {
