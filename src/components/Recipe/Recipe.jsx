@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Recipe.module.css";
+import axios from "axios";
 
 const Recipe = ({ recipeDetails }) => {
   if (!recipeDetails)
@@ -11,7 +12,39 @@ const Recipe = ({ recipeDetails }) => {
       </>
     ); // loading state while fetching data
 
-    return (
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  const saveRecipe = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      await axios.post(
+        `${API_URL}/api/save-recipe`,
+        {
+          title: recipeDetails.title,
+          summary: recipeDetails.summary,
+          readyInMinutes: recipeDetails.readyInMinutes,
+          servings: recipeDetails.servings,
+          ingredients: recipeDetails.extendedIngredients,
+          instructions: recipeDetails.instructions,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("Recipe saved successfully!");
+    } catch (error) {
+      console.error(
+        "Failed to save recipe:",
+        error.response?.data || error.message
+      );
+    }
+  };
+
+  return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
         <img src={recipeDetails.image} alt={recipeDetails.title} />
@@ -38,6 +71,9 @@ const Recipe = ({ recipeDetails }) => {
         className={styles.instructions}
         dangerouslySetInnerHTML={{ __html: recipeDetails.instructions }}
       ></div>
+      <button className={styles.saveBtn} onClick={saveRecipe}>
+        Save Recipe
+      </button>
     </div>
   );
 };
