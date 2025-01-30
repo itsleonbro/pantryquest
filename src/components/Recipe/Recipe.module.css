@@ -39,6 +39,15 @@
   gap: 8px;
 }
 
+.saveBtn {
+  cursor: pointer;
+  background-color: var(--orange);
+  border: none;
+  border-radius: 15px;
+  width: 100px;
+  height: 30px;
+}
+
 /* media queries */
 @media (max-width: 768px) {
   .container img {
