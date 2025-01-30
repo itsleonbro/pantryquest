@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const RecipePage = () => {
   let params = useParams();
-  
+
   // state for recipe info search
   const [recipeDetails, setRecipeDetails] = useState(null);
 
