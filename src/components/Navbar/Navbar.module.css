@@ -41,6 +41,11 @@
   display: flex;
 }
 
+.rightMenu a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .accountPopUp {
   display: none;
   flex-direction: column;
