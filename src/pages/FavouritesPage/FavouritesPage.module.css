@@ -1,0 +1,22 @@
+.favContainer {
+  padding: var(--section-padding);
+}
+
+.favContainer h2 {
+  padding: 20px 0px;
+}
+
+.favContainer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.favContainer ul li a {
+  text-decoration: none;
+  color: var(--orange);
+}
+
+.favContainer ul li a:hover {
+  color: #ffa968;
+}
