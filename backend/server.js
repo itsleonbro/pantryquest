@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+import helmet from "helmet";
 require("dotenv").config();
 
-const authRoutes = require('./routes/auth.routes');
-const recipeRoutes = require('./routes/recipe.routes');
+const authRoutes = require("./routes/auth.routes");
+const recipeRoutes = require("./routes/recipe.routes");
 
 const app = express();
 
@@ -16,8 +17,10 @@ mongoose
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch(err => console.error("Error connecting to MongoDB Atlas", err));
 
-app.use('/api', authRoutes);
-app.use('/api', recipeRoutes);
+app.use("/api", authRoutes);
+app.use("/api", recipeRoutes);
+
+app.use(helmet());
 
 const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server running on port ${port}`));
