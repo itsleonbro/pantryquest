@@ -1,25 +1,26 @@
 # PantryQuest
 
-PantryQuest is a React web app designed to help you discover recipes using ingredients you already have. Simply enter ingredients (separated by commas) to find matching recipes, or use predefined buttons to quickly browse popular cuisine and meal types.
+A web application for discovering recipes based on ingredients you already have in your pantry. Create and share your own recipes, or explore a community-driven collection of recipes created by other users on the platform.
 
 ## Features
 
-- **Ingredient-Based Search:** Enter multiple ingredients separated by commas (e.g., "tomato, chicken, basil") to find recipes that use those items.
-- **Quick Search by Cuisine:** Use the predefined buttons for one-click access to recipes by cuisine. Options include:
-
+- **Ingredient-Based Search:** Find recipes by entering multiple ingredients separated by commas
+- **Cuisine Quick Search:** Browse recipes by cuisine type with predefined buttons for:
   - Japanese
   - Italian
   - American
   - Asian
   - European
-
-- **Responsive Design:** PantryQuest is fully responsive and works on desktop, tablet, and mobile devices.
+- **User Authentication:** Register and login to access personalized features
+- **Favorites System:** Save recipes you love for quick access later
+- **My Recipes:** Create, edit, and manage your own personal recipes
+- **Community Recipes:** Browse and view recipes created by other PantryQuest users
+- **Responsive Design:** Works on desktop, tablet, and mobile devices
 
 ## Live Site
 
-You can view the live version of PantryQuest by visiting the following link:  
+You can view the live version of PantryQuest at:  
 [PantryQuest - Live Site](https://pantryquest.itsleon.dev)
-
 
 ## Installation
 
@@ -29,40 +30,68 @@ You can view the live version of PantryQuest by visiting the following link:
    git clone https://github.com/itsleonbro/pantryquest.git
    ```
 
-2. Install dependancies
+2. Install frontend dependencies:
 
    ```bash
    cd pantryquest
    npm install
    ```
 
-3. Create an .env file in the root directory
+3. Set up frontend environment:
+   Create a .env file in the root directory with:
+
+   ```
+   VITE_API_KEY=YourSpoonacularApiKey
+   VITE_API_URL=http://localhost:5001
+   ```
+
+4. Install backend dependencies:
 
    ```bash
-   VITE_API_KEY=YourApi
+   cd backend
+   npm install
+   ```
+
+5. Set up backend environment:
+   Create a .env file in the backend directory with:
+
+   ```
+   MONGODB_URI=YourMongoDBConnectionString
+   JWT_SECRET=YourSecretKey
+   PORT=5001
+   CORS_ORIGIN=http://localhost:5173
    ```
 
    ### Important:
 
-   Never commit your .env file
-   Keep your API key private
-   Get your API key from Spoonacular's API Portal
-   Free tier includes 150 requests per day
+   - Never commit your .env files
+   - Keep your API keys private
+   - Get your Spoonacular API key from their API Portal
+   - Free tier includes 150 requests per day
 
-4. Start the development server
+## Running the Application
+
+1. Start the backend server:
+
    ```bash
+   cd backend
+   npm start
+   ```
+
+2. Start the frontend development server:
+
+   ```bash
+   cd pantryquest
    npm run dev
    ```
-   or if you use yarn
-   ```bash
-   yarn dev
-   ```
-   Your app should now be running on http://localhost:5173
 
-## Technologies Used
+3. Access the application at http://localhost:5173
 
-- **React:** For building the user interface.
-- **API Integration:** PantryQuest uses a third-party recipe API to fetch recipe data based on user inputs.
+## Technology Stack
+
+- **Frontend:** React, React Router, Vite, CSS Modules, Axios
+- **Backend:** Node.js, Express, MongoDB, JWT, bcrypt
+- **API:** Spoonacular (150 requests/day free tier)
 
 ## License
 
