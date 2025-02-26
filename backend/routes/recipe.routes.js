@@ -1,9 +1,24 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { saveRecipe, getFavorites } = require('../controllers/recipe.controller');
-const authenticate = require('../middleware/authenticate');
+const {
+  getUserRecipes,
+  getRecipeById,
+  createRecipe,
+  updateRecipe,
+  deleteRecipe,
+} = require("../controllers/userRecipe.controller");
+const authenticate = require("../middleware/authenticate");
 
-router.post('/save-recipe', authenticate, saveRecipe);
-router.get('/favourites', authenticate, getFavorites);
+router.use(authenticate);
+
+router.get("/my-recipes", getUserRecipes);
+
+router.get("/my-recipes/:id", getRecipeById);
+
+router.post("/my-recipes", createRecipe);
+
+router.put("/my-recipes/:id", updateRecipe);
+
+router.delete("/my-recipes/:id", deleteRecipe);
 
 module.exports = router;

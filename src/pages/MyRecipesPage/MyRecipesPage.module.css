@@ -1,0 +1,19 @@
+.myRecipesContainer {
+  padding: var(--section-padding);
+}
+
+.myRecipesContainer h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .myRecipesContainer {
+    padding: 20px 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .myRecipesContainer {
+    padding: 20px 20px;
+  }
+}
