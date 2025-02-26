@@ -19,6 +19,8 @@ import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage";
 import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
 import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
 import ViewUserRecipePage from "./pages/ViewUserRecipePage/ViewUserRecipePage";
+import CommunityRecipesPage from "./pages/CommunityRecipesPage/CommunityRecipesPage";
+import ViewCommunityRecipePage from "./pages/ViewCommunityRecipePage/ViewCommunityRecipePage";
 
 function App() {
   //vercel analytics
@@ -105,6 +107,11 @@ function App() {
         <Route path="/create-recipe" element={<CreateRecipePage />} />
         <Route path="/edit-recipe/:id" element={<EditRecipePage />} />
         <Route path="/view-recipe/:id" element={<ViewUserRecipePage />} />
+        <Route path="/community-recipes" element={<CommunityRecipesPage />} />
+        <Route
+          path="/community-recipe/:id"
+          element={<ViewCommunityRecipePage />}
+        />
       </Routes>
       <Footer />
     </Router>

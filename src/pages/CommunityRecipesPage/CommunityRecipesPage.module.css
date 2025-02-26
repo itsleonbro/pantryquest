@@ -1,0 +1,130 @@
+.communityRecipesContainer {
+  padding: var(--section-padding);
+}
+
+.communityRecipesContainer h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--orange);
+  margin-top: 30px;
+}
+
+.error {
+  color: var(--orange);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.noRecipes {
+  text-align: center;
+  padding: 50px 0;
+  color: #666;
+}
+
+.createBtn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--orange);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.createBtn:hover {
+  background-color: #e67522;
+}
+
+.recipeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.recipeCard {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recipeCard h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.recipeInfo {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.authorInfo {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.viewBtn {
+  display: inline-block;
+  padding: 8px 0;
+  background-color: var(--orange);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.viewBtn:hover {
+  background-color: #e67522;
+}
+
+@media (max-width: 768px) {
+  .communityRecipesContainer {
+    padding: 20px 70px;
+  }
+
+  .recipeGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .communityRecipesContainer {
+    padding: 20px 20px;
+  }
+
+  .recipeGrid {
+    grid-template-columns: 1fr;
+  }
+}

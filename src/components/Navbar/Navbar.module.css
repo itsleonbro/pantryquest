@@ -1,6 +1,8 @@
 .nav {
   padding: 20px 50px;
-  overflow: hidden;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navContainer {
@@ -12,6 +14,7 @@
 
 .logo h1 {
   font-size: 1.5rem;
+  margin: 0;
 }
 
 .logo a {
@@ -19,9 +22,30 @@
   color: inherit;
 }
 
+.navLinks {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  padding: 8px 15px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.navLinks a:hover {
+  color: var(--orange);
+  background-color: #f9f9f9;
+}
+
 .rightMenu {
   display: flex;
   gap: 10px;
+  position: relative;
 }
 
 .rightMenu svg {
@@ -30,15 +54,16 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 40px; /* Reverted back to original size */
+  height: 40px; /* Reverted back to original size */
   cursor: pointer;
 }
 
-/* show the pop-up when either the icon div or the pop-up itself is hovered */
-.rightMenu div:hover + .accountPopUp,
-.accountPopUp:hover {
+.accountIcon {
+  cursor: pointer;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rightMenu a {
@@ -49,44 +74,69 @@
 .accountPopUp {
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 15px;
-  width: 150px;
+  width: 180px;
   position: fixed;
-  top: 7%;
-  transform: translateX(-50px);
+  top: 70px;
+  right: 50px;
   color: black;
   background-color: #fff;
-  padding: 10px 12px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 80vh;
+  overflow-y: none;
+}
+
+.accountPopUp.show {
+  display: flex;
+}
+
+@media (min-width: 769px) {
+  .rightMenu:hover .accountPopUp {
+    display: flex;
+  }
 }
 
 .accountPopUp a {
   text-decoration: none;
   color: inherit;
   transition: 0.3s ease;
+  display: block;
+  padding: 5px 0;
 }
 
 .accountPopUp a:hover {
   color: var(--orange);
-  text-decoration: none;
 }
 
-/* media queries */
 @media (max-width: 768px) {
   .nav {
-    padding: 20px 50px;
+    padding: 15px 40px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .accountPopUp {
+    right: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .nav {
-    padding: 20px 20px;
+    padding: 15px 20px;
   }
 
   .logo h1 {
     font-size: 1rem;
+  }
+
+  .accountPopUp {
+    right: 20px;
+    width: 160px;
   }
 }
