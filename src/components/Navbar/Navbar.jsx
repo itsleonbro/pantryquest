@@ -28,6 +28,20 @@ const Navbar = () => {
     };
   }, [dropdownRef]);
 
+  // close dropdown when scrolling
+  useEffect(() => {
+    function handleScroll() {
+      if (isAccountClicked) {
+        setIsAccountClicked(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isAccountClicked]);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
