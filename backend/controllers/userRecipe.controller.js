@@ -166,10 +166,71 @@ const deleteRecipe = async (req, res) => {
   }
 };
 
+const getAllCommunityRecipes = async (req, res) => {
+  try {
+    const users = await UserModel.find({}, "username userRecipes");
+
+    // flatten the array of user recipes and add username
+    let allRecipes = [];
+    for (const user of users) {
+      const userRecipes = user.userRecipes.map(recipe => ({
+        ...recipe.toObject(),
+        authorUsername: user.username,
+        authorId: user._id,
+      }));
+      allRecipes = [...allRecipes, ...userRecipes];
+    }
+
+    // sort recipes by most recently updated
+    const sortedRecipes = allRecipes.sort(
+      (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+    );
+
+    res.status(200).json(sortedRecipes);
+  } catch (error) {
+    console.error("Error fetching community recipes:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+const getCommunityRecipeById = async (req, res) => {
+  const recipeId = req.params.id;
+
+  try {
+    // find a user with a recipe matching the given ID
+    const user = await UserModel.findOne(
+      { "userRecipes._id": recipeId },
+      "username userRecipes"
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    //fFind the recipe in the user's recipes
+    const recipe = user.userRecipes.id(recipeId);
+    if (!recipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    const recipeWithAuthor = {
+      ...recipe.toObject(),
+      authorUsername: user.username,
+    };
+
+    res.status(200).json(recipeWithAuthor);
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
 module.exports = {
   getUserRecipes,
   getRecipeById,
   createRecipe,
   updateRecipe,
   deleteRecipe,
+  getAllCommunityRecipes,
+  getCommunityRecipeById,
 };

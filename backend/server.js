@@ -7,6 +7,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/auth.routes");
 const recipeRoutes = require("./routes/recipe.routes");
 const userRecipeRoutes = require("./routes/recipe.routes");
+const publicRecipeRoutes = require("./routes/public.routes");
 
 const app = express();
 
@@ -38,8 +39,11 @@ const connectDB = async () => {
 
 connectDB();
 
+// PUBLIC routes (no auth required)
+app.use("/api", publicRecipeRoutes);
+
+// protected routes (require auth)
 app.use("/api", authRoutes);
-app.use("/api", recipeRoutes);
 app.use("/api", userRecipeRoutes);
 
 // 404 handler
