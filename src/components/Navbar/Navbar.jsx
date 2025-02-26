@@ -46,13 +46,14 @@ const Navbar = () => {
                 <Link to={"/"}>Home</Link>
               </div>
               <div>
+                <Link to={"/my-recipes"}>My Recipes</Link>
+              </div>
+              <div>
                 <Link to={"/account/profile"}>Profile</Link>
               </div>
-
               <div>
-                <Link to={"/account/my-recipes"}>My Recipes</Link>
+                <Link to={"/account/favourites"}>Saved Recipes</Link>
               </div>
-
               <div onClick={handleLogOut}>
                 <Link>Log Out</Link>
               </div>

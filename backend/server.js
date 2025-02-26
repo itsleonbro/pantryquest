@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const authRoutes = require("./routes/auth.routes");
 const recipeRoutes = require("./routes/recipe.routes");
+const userRecipeRoutes = require("./routes/recipe.routes");
 
 const app = express();
 
@@ -27,10 +28,7 @@ app.use((err, req, res, next) => {
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGODB_URI, {});
     console.log("Connected to MongoDB Atlas");
   } catch (err) {
     console.error("MongoDB connection error:", err);
@@ -42,6 +40,7 @@ connectDB();
 
 app.use("/api", authRoutes);
 app.use("/api", recipeRoutes);
+app.use("/api", userRecipeRoutes);
 
 // 404 handler
 app.use((req, res) => {

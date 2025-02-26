@@ -15,6 +15,10 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import AccountProfilePage from "./pages/AccountProfilePage/AccountProfilePage";
 import FavouritesPage from "./pages/FavouritesPage/FavouritesPage";
 import FaveRecipePage from "./pages/FaveRecipePage/FaveRecipePage";
+import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage";
+import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
+import EditRecipePage from "./pages/EditRecipePage/EditRecipePage";
+import ViewUserRecipePage from "./pages/ViewUserRecipePage/ViewUserRecipePage";
 
 function App() {
   //vercel analytics
@@ -97,6 +101,10 @@ function App() {
         <Route path="/account/profile" element={<AccountProfilePage />} />
         <Route path="/account/favourites" element={<FavouritesPage />} />
         <Route path="/faverecipe/:title" element={<FaveRecipePage />} />
+        <Route path="/my-recipes" element={<MyRecipesPage />} />
+        <Route path="/create-recipe" element={<CreateRecipePage />} />
+        <Route path="/edit-recipe/:id" element={<EditRecipePage />} />
+        <Route path="/view-recipe/:id" element={<ViewUserRecipePage />} />
       </Routes>
       <Footer />
     </Router>

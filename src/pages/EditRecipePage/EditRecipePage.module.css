@@ -1,0 +1,32 @@
+.editRecipeContainer {
+  padding: var(--section-padding);
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.backBtn {
+  display: inline-block;
+  background-color: var(--orange);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .editRecipeContainer {
+    padding: 20px 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editRecipeContainer {
+    padding: 20px 20px;
+  }
+}

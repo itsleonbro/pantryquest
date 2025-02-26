@@ -1,0 +1,142 @@
+.formContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.recipeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formRow {
+  display: flex;
+  gap: 20px;
+}
+
+.formRow .formGroup {
+  flex: 1;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.recipeForm label {
+  font-weight: bold;
+}
+
+.recipeForm input,
+.recipeForm textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.recipeForm input:focus,
+.recipeForm textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+.ingredientRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ingredientName {
+  flex: 3;
+}
+
+.ingredientAmount {
+  flex: 1;
+}
+
+.ingredientUnit {
+  flex: 1;
+}
+
+.removeBtn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+}
+
+.removeBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.addBtn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancelBtn {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitBtn {
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submitBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .formRow {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .ingredientRow {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .removeBtn {
+    align-self: flex-end;
+    margin-top: 5px;
+  }
+}
