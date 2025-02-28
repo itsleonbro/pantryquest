@@ -30,6 +30,10 @@
   margin-bottom: 10px;
 }
 
+.recipeTitle {
+  margin-top: 15px;
+}
+
 .recipeForm label {
   font-weight: bold;
 }
@@ -40,6 +44,11 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+}
+
+.recipeForm textarea {
+  resize: vertical;
+  min-height: 170px;
 }
 
 .recipeForm input:focus,

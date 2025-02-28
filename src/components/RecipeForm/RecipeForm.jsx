@@ -162,7 +162,9 @@ const RecipeForm = ({ recipeId = null, initialData = null }) => {
 
       <form onSubmit={handleSubmit} className={styles.recipeForm}>
         <div className={styles.formGroup}>
-          <label htmlFor="title">Recipe Title *</label>
+          <label htmlFor="title" className={styles.recipeTitle}>
+            Recipe Title *
+          </label>
           <input
             type="text"
             id="title"
