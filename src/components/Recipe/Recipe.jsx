@@ -3,6 +3,8 @@ import styles from "./Recipe.module.css";
 import axios from "axios";
 
 const Recipe = ({ recipeDetails }) => {
+  const [errorMessage, setErrorMessage] = useState(null);
+
   if (!recipeDetails)
     return (
       <>
@@ -37,12 +39,20 @@ const Recipe = ({ recipeDetails }) => {
 
       console.log("Recipe saved successfully!");
     } catch (error) {
+      const errorMsg = error.response?.data.message || error.message;
+
+      setErrorMessage(errorMsg);
+
       console.error(
         "Failed to save recipe:",
         error.response?.data || error.message
       );
     }
   };
+
+  if (errorMessage) {
+    console.log(errorMessage);
+  }
 
   return (
     <div className={styles.container}>
@@ -74,6 +84,12 @@ const Recipe = ({ recipeDetails }) => {
       <button className={styles.saveBtn} onClick={saveRecipe}>
         Save Recipe
       </button>
+
+      {errorMessage && (
+        <div>
+          <h3>{errorMessage}</h3>
+        </div>
+      )}
     </div>
   );
 };

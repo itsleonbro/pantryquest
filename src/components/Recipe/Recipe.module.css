@@ -40,12 +40,17 @@
 }
 
 .saveBtn {
+  color: #000;
   cursor: pointer;
   background-color: var(--orange);
   border: none;
   border-radius: 15px;
   width: 100px;
   height: 30px;
+}
+
+.saveBtn:active {
+  transform: scale(0.98);
 }
 
 /* media queries */
