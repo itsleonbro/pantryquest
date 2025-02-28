@@ -12,7 +12,6 @@ const authenticate = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = decoded.userId; // add userId to the request object
-    console.log("User ID from token:", req.userId);
 
     next();
   } catch (error) {
