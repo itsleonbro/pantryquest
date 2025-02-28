@@ -7,6 +7,7 @@ const {
   updateRecipe,
   deleteRecipe,
 } = require("../controllers/userRecipe.controller");
+const { saveRecipe } = require("../controllers/recipe.controller");
 const authenticate = require("../middleware/authenticate");
 
 // all routes in this file require authentication
@@ -18,5 +19,6 @@ router.get("/my-recipes/:id", getRecipeById);
 router.post("/my-recipes", createRecipe);
 router.put("/my-recipes/:id", updateRecipe);
 router.delete("/my-recipes/:id", deleteRecipe);
+router.post("/save-recipe", saveRecipe);
 
 module.exports = router;

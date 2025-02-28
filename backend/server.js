@@ -45,6 +45,7 @@ app.use("/api", publicRecipeRoutes);
 // protected routes (require auth)
 app.use("/api", authRoutes);
 app.use("/api", userRecipeRoutes);
+app.use("/api", recipeRoutes);
 
 // 404 handler
 app.use((req, res) => {
