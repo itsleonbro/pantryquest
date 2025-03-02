@@ -191,17 +191,27 @@ const RecipeForm = ({ recipeId = null, initialData = null }) => {
               <input
                 type="text"
                 value={ing.amount}
-                onChange={e =>
-                  handleIngredientChange(index, "amount", e.target.value)
-                }
+                onChange={e => {
+                  const newValue = e.target.value.replace(/[^0-9]/g, "");
+                  handleIngredientChange(
+                    index,
+                    "amount",
+                    newValue.replace(/^0+/, "")
+                  ); // remove leading zeroes
+                }}
                 placeholder="Amount"
                 className={styles.ingredientAmount}
+                maxLength={5}
               />
               <input
                 type="text"
                 value={ing.unit}
                 onChange={e =>
-                  handleIngredientChange(index, "unit", e.target.value)
+                  handleIngredientChange(
+                    index,
+                    "unit",
+                    e.target.value.replace(/[^a-zA-Z]/g, "")
+                  )
                 }
                 placeholder="Unit"
                 className={styles.ingredientUnit}
