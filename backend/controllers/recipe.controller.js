@@ -1,5 +1,6 @@
 const UserModel = require("../models/UserModel");
 const { v4: uuidv4 } = require("uuid");
+
 const saveRecipe = async (req, res) => {
   const {
     title,
@@ -9,6 +10,7 @@ const saveRecipe = async (req, res) => {
     ingredients,
     instructions,
   } = req.body;
+
   const userId = req.userId;
 
   try {

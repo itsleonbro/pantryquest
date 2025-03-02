@@ -47,12 +47,12 @@ const Recipe = ({ recipeDetails }) => {
         "Failed to save recipe:",
         error.response?.data || error.message
       );
+
+      if (error.response?.status === 403) {
+        setErrorMessage("You must be logged in");
+      }
     }
   };
-
-  if (errorMessage) {
-    console.log(errorMessage);
-  }
 
   return (
     <div className={styles.container}>
