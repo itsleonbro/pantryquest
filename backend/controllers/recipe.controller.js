@@ -1,7 +1,14 @@
-const UserModel = require('../models/UserModel');
-
+const UserModel = require("../models/UserModel");
+const { v4: uuidv4 } = require("uuid");
 const saveRecipe = async (req, res) => {
-  const { title, summary, readyInMinutes, servings, ingredients, instructions } = req.body;
+  const {
+    title,
+    summary,
+    readyInMinutes,
+    servings,
+    ingredients,
+    instructions,
+  } = req.body;
   const userId = req.userId;
 
   try {
@@ -14,10 +21,11 @@ const saveRecipe = async (req, res) => {
       return res.status(400).json({ message: "Recipe already in favorites" });
     }
 
-    const randomNumber = Math.floor(Math.random() * 1000);
+    const uniqueID = uuidv4();
+
     user.favourites.push({
       title,
-      recipeID: randomNumber,
+      recipeID: uniqueID,
       summary,
       readyInMinutes,
       servings,
@@ -29,7 +37,9 @@ const saveRecipe = async (req, res) => {
     res.status(200).json({ message: "Recipe added to favorites" });
   } catch (error) {
     console.error("Error saving recipe:", error);
-    res.status(500).json({ message: "Internal server error", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
   }
 };
 
@@ -48,5 +58,5 @@ const getFavorites = async (req, res) => {
 
 module.exports = {
   saveRecipe,
-  getFavorites
+  getFavorites,
 };
